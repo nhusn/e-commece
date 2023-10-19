@@ -2,8 +2,11 @@ import React from 'react';
 import { Badge, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Header.css'
+import { useSelector } from 'react-redux';
 
 function Header() {
+  const wishlist = useSelector((state)=>state.wishlistReducer)
+
   return (
     <div className='mb-5'>
       <Navbar className="bg-primary">
@@ -15,7 +18,7 @@ function Header() {
             </Link>
           </Navbar.Brand>
           <Navbar.Brand className='ms-auto'>
-            <Link style={{ color: "white" }} to={'/wishlist'}><i id='wishlist' className="fa-solid fa-heart"></i><sup><Badge style={{ fontSize: "9px" }} bg="secondary">9</Badge></sup>
+            <Link style={{ color: "white" }} to={'/wishlist'}><i id='wishlist' className="fa-solid fa-heart"></i><sup><Badge style={{ fontSize: "9px" }} bg="warning">{wishlist.length}</Badge></sup>
             </Link>
             <Link style={{ textDecoration: "none", color: "white" }} to={'/cart'}>
               <i id='cart' className="fa-solid fa-cart-shopping ms-4 "></i></Link>
