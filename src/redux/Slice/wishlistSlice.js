@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Wishlist from "../../Pages/Wishlist";
 
 const wishlistSlice = createSlice({
     name:"wishlist",
